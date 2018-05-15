@@ -1,10 +1,9 @@
 {
-  "main.css": "static/css/main.c4e90933.css",
-  "main.css.map": "static/css/main.c4e90933.css.map",
-  "main.js": "static/js/main.ec88ae07.js",
-  "main.js.map": "static/js/main.ec88ae07.js.map",
+  "main.css": "static/css/main.9642bff0.css",
+  "main.css.map": "static/css/main.9642bff0.css.map",
+  "main.js": "static/js/main.d6d9c01d.js",
+  "main.js.map": "static/js/main.d6d9c01d.js.map",
   "static/media/BgTile.png": "static/media/BgTile.23646958.png",
   "static/media/CrazeLogo.svg": "static/media/CrazeLogo.763d3e3c.svg",
-  "static/media/phone.png": "static/media/phone.52403b51.png",
-  "static/media/video.png": "static/media/video.cbb7c7f9.png"
+  "static/media/phone.png": "static/media/phone.52403b51.png"
 }
