@@ -53,17 +53,6 @@ const AboutWrapper = styled.div`
   }
 `;
 
-// const Chev = styled.div`
-//   position: realtive;
-//   overflow: hidden;
-//   border-top: .25em solid black;
-//   border-right: .25em solid black;
-//   transform: rotate(45deg);
-//   height: .4em;
-//   width: .4em;
-//   margin-right: .5em;
-// `;
-
 const LeftContentWrapper = styled.div`
   max-width: 33em;
   
