@@ -1,68 +1,73 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Reviews = ({onChangeSlide, current, revs}) => {
+const Reviews = ({ onChangeSlide, stopAutoPlay, current, revs }) => {
 
   return (
     <div >
       <ReviewsWrapper>
         <Review>
-          {console.log('revs ', revs, ' current ', current)}
           <i>{revs[current].review}</i>
           <h4>{revs[current].author}</h4>
-          <Dots>
-            {
-              revs.map((rev, idx) => (
-                idx === current ?
-                  <ActiveDot/>
-                : 
-                  <Dot
-                    key={rev.id}
-                    onClick={(key) => {
-                      onChangeSlide(idx)
-                    }}
-                  />
-              ))
-            }
-          </Dots>
         </Review>
+        <Dots>
+          {
+            revs.map((rev, idx) => (
+              idx === current ?
+                <ActiveDot
+                  key={idx}
+                />
+                :
+                <Dot
+                  key={idx}
+                  onClick={(key) => {
+                    onChangeSlide(idx)
+                    stopAutoPlay()
+                  }}
+                />
+            ))
+          }
+        </Dots>
       </ReviewsWrapper>
     </div>
   );
 };
 
-// Styles 
-
 const ReviewsWrapper = styled.div`
-  display: flex;
+  /* display: flex; */
   margin: auto;
-  overflow-x: hidden;
+  overflow: hidden;
   padding: 4em;
   max-width: 60em;
-  
-  transition-property: all;
-	transition-duration: .5s;
-	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  height: 9em;
+  @media (max-width: 600px ){
+    padding: 4em 2em;
 `;
 
 const Review = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: space-between;
+
   text-align: center;
-  width: 80em;
+  max-width: 45em;
   min-height: 9em;
+  margin: auto;
+  
+  h4 {
+    margin: 1em 0em;
+  }
+  @media (max-width: 600px ){
+    i {
+      font-size: 1.2em;
+    }
+  }
 `;
 
 const Dots = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-content: center;
-width: 6em;
-margin: auto;
-justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  width: 6em;
+  margin: 0em auto;
+  justify-content: space-between;
 `;
 
 const Dot = styled.div`

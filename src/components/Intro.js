@@ -4,7 +4,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faApple from '@fortawesome/fontawesome-free-brands/faApple';
 import faAndroid from '@fortawesome/fontawesome-free-brands/faAndroid';
 import faWindows from '@fortawesome/fontawesome-free-brands/faWindows';
-import CrazeLogo from '../images/CrazeLogo.svg';
+import CrazeLogo from '../images/CrazeLogo.png';
 import Phone from '../images/phone.png';
 import BgTile from '../images/BgTile.png';
 
@@ -59,7 +59,21 @@ const LeftContentWrapper = styled.div`
   max-width: 25em;
   flex-direction: column;
   justify-content: center;
+  align-items: left;
   margin-right: 2em;
+  @media ( max-width:700px ){
+    margin: auto;
+    align-items: center;
+  }
+`;
+
+const Logo = styled.div`
+  height: 5em;
+  width: 11em;
+  background-image: url(${CrazeLogo});
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow( .2em .3em 0em rgba(0, 1, 1, 0.25));
   @media ( max-width:700px ){
     margin: auto;
   }
@@ -107,15 +121,6 @@ const Icon = styled.div`
   }
 `;
 
-const Logo = styled.img`
-  width: 10em;
-  height: 5em;
-  filter: drop-shadow( .2em .3em 0em rgba(0, 1, 1, 0.25));
-  @media ( max-width:700px ){
-    align-self: center;
-  }
-`;
-
 const PhoneImg = styled.div`
   padding-top: 2em;
   img {
@@ -124,7 +129,6 @@ const PhoneImg = styled.div`
   }
   @media (max-width:700px){
     margin: 0em 20% ;
-    margin-bottom: -.3em;
   }
 `;
 

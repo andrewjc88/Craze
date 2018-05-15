@@ -12,7 +12,7 @@ import './index.css';
 class CrazeApp extends Component {
   state = {
     autoPlay: true,
-    currentSlide: '1',
+    currentSlide: 0,
     reviewsContent: [
       {
         review: '“Craze is one of the most complete app packages I have ever come across. I would highly reccomend it to anyone!”',
@@ -34,22 +34,47 @@ class CrazeApp extends Component {
   }
 
   slideChanger = (revId) => {
-    this.setState(state => ({ currentSlide: revId }))
+    this.setState({
+      currentSlide: revId
+    })
+  }
+
+  stopAutoPlay = () => {
+    this.setState({
+      autoPlay: false
+    })
+  }
+
+  // carousel timmer 
+  componentDidMount = () => {
+    setInterval(() => {
+      if (this.state.autoPlay === false) {
+        return;
+      } else if (this.state.currentSlide >= this.state.reviewsContent.length - 1) {
+        this.setState({
+          currentSlide: 0
+        });
+      } else {
+        this.setState({
+          currentSlide: this.state.currentSlide + 1
+        });
+      }
+    }, 4000);
   }
 
   render() {
     return (
       <div className="App">
         <Intro />
-        <Features /> 
-        <About /> 
-        {console.log(this.state.currentSlide)}
-        <Reviews 
+        <Features />
+        <About />
+        <Reviews
           current={this.state.currentSlide}
+          stopAutoPlay={this.stopAutoPlay}
           revs={this.state.reviewsContent}
-          onChangeSlide={this.slideChanger}/>
-        <Plans /> 
-        <SayHi /> 
+          onChangeSlide={this.slideChanger} />
+        <Plans />
+        <SayHi />
         <Footer />
       </div>
     );

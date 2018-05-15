@@ -78,6 +78,7 @@ const PlansWrapper = styled.div`
     p {
       margin: 2em 0em;
     }
+    padding: 4em 2em;
   }
 `;
 
@@ -117,19 +118,22 @@ const Card = styled.div`
 const CardContent = styled.div`
   background-color: white;
   h1 {
-    margin: .6em 0em 0em 0em;
+    /* font-weight: 600; */
+    vertical-align: text-top ;
+
   }
   span {
+    /* font-family: "myriad-pro", sans-serif; */
     font-size: .6em;
-    margin: 0;
-    vertical-align: text-top;
+    /* padding-top: .5em; */
+    /* margin: 0; */
+    vertical-align: text-top ;
   }
   li {
     padding-top: .4em;
     border-top: .05em solid #c2c2c2;
     text-align: center;
     margin: .5em .5em;
-  }
   }
 `;
 
@@ -140,12 +144,10 @@ const CardButton = styled.button`
   margin: 1.3em auto;
   transition-duration: .2s;
   transition-timing-function: ease-in-out;
-  /* line-height: -2.3; */
-  /* height: 2em; */
   min-width: 8em;
   max-width: 20em;
   outline: none;
-  /* padding:  .6em 3em .4em; */
+  padding:  .6em 0em .4em;
   &:hover{  
     transform: translate(0, -3%);
   }

@@ -28,7 +28,7 @@ const LinksWrapper = styled.div`
   flex-wrap: wrap;
   margin: auto;
   a {
-    padding: .5em;
+    padding: .5em .7em;
   }
 `;
 

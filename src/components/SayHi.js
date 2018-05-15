@@ -39,6 +39,8 @@ const SayHi = () => {
 
 const SayHiWrapper = styled.div`
   padding: 3em 2em;
+  @media (max-width: 600px ){
+    padding: 0em 2em 4em 2em;
 `;
 
 const IconsWrapper = styled.div`
