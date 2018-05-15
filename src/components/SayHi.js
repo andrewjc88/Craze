@@ -11,7 +11,7 @@ import Youtube from '@fortawesome/fontawesome-free-brands/faYoutube';
 const SayHi = () => {
   return (
     <SayHiWrapper>
-      <h2>Say Hi & Get in Touch</h2>
+      <h1>Say Hi & Get in Touch</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit suspendisse. </p>
       <IconsWrapper>
         <Icon>
@@ -57,7 +57,7 @@ const Icon = styled.div`
   width: 2em;
   height: 2em;
   text-align: center;
-  margin: .3em;
+  margin: .4em;
   background-color: #000;
   border-radius: 2em;
   opacity: .5;

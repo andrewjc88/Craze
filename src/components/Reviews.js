@@ -1,26 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const Reviews = ({currnet, revs}) => {
+const Reviews = ({onChangeSlide, current, revs}) => {
 
   return (
     <div >
       <ReviewsWrapper>
         <Review>
-          console.log(revs[1].review)
-          {/* <i>{revs[1].review}</i>
-          <h4>{revs[1].author}</h4> */}
+          {console.log('revs ', revs, ' current ', current)}
+          <i>{revs[current].review}</i>
+          <h4>{revs[current].author}</h4>
           <Dots>
-            {/* {
-              revs.maps((rev)=>(
-                rev.active === true ?
+            {
+              revs.map((rev, idx) => (
+                idx === current ?
                   <ActiveDot/>
-                : <Dot/>
+                : 
+                  <Dot
+                    key={rev.id}
+                    onClick={(key) => {
+                      onChangeSlide(idx)
+                    }}
+                  />
               ))
-            } */}
-            <Dot/>
-            <ActiveDot/>
+            }
           </Dots>
         </Review>
       </ReviewsWrapper>
@@ -28,9 +31,7 @@ const Reviews = ({currnet, revs}) => {
   );
 };
 
-const Slide = styled.div`
-
-`;
+// Styles 
 
 const ReviewsWrapper = styled.div`
   display: flex;
@@ -38,11 +39,20 @@ const ReviewsWrapper = styled.div`
   overflow-x: hidden;
   padding: 4em;
   max-width: 60em;
+  
+  transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 `;
 
 const Review = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
   text-align: center;
   width: 80em;
+  min-height: 9em;
 `;
 
 const Dots = styled.div`
@@ -50,20 +60,24 @@ display: flex;
 flex-direction: row;
 justify-content: center;
 align-content: center;
+width: 6em;
+margin: auto;
 justify-content: space-between;
 `;
 
 const Dot = styled.div`
-  width: .4em;
-  height: .4em;
+  cursor: pointer;
+  width: .5em;
+  height: .5em;
   border: solid .1em #3498db;
-  border-radius: 3em;
+  border-radius: 1em;
 `;
+
 const ActiveDot = styled.div`
-  width: .4em;
-  height: .4em;
+  width: .5em;
+  height: .5em;
   border: solid .1em #3498db;
-  border-radius: 3em;
+  border-radius: 1em;
   background-color: #3498db;
 `;
 

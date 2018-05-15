@@ -11,24 +11,30 @@ import './index.css';
 
 class CrazeApp extends Component {
   state = {
-    currentSlide: {},
+    autoPlay: true,
+    currentSlide: '1',
     reviewsContent: [
       {
         review: '“Craze is one of the most complete app packages I have ever come across. I would highly reccomend it to anyone!”',
-        author: 'Sarah Hunt',
-        active: true
+        author: 'Sarah Hunt'
       },
       {
         review: '"Best Tacos in town. Cant belive what an amazing taco deal this is!"',
-        author: 'Taco Luvin dude',
-        active: false
+        author: 'Taco Luvin dude'
       },
       {
         review: '"This app saved my life! I never thought an app could stop a rabid pack of cannibals! A++"',
-        author: 'Indiana Johnson',
-        active: false
+        author: 'Indiana Johnson'
+      },
+      {
+        review: '"Best Tacos in town. Cant belive what an amazing taco deal this is!"',
+        author: 'Taco Luvin dude'
       }
     ]
+  }
+
+  slideChanger = (revId) => {
+    this.setState(state => ({ currentSlide: revId }))
   }
 
   render() {
@@ -37,9 +43,11 @@ class CrazeApp extends Component {
         <Intro />
         <Features /> 
         <About /> 
+        {console.log(this.state.currentSlide)}
         <Reviews 
           current={this.state.currentSlide}
-          reviews={this.state.reviewsContent}/>
+          revs={this.state.reviewsContent}
+          onChangeSlide={this.slideChanger}/>
         <Plans /> 
         <SayHi /> 
         <Footer />
@@ -49,4 +57,3 @@ class CrazeApp extends Component {
 }
 
 ReactDOM.render(<CrazeApp />, document.getElementById('root'));
-
